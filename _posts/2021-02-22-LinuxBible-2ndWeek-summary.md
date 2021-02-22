@@ -5,7 +5,7 @@ summary: CH07~CH11
 author: Dohyun Kim
 date: 2021-02-22 11:59:28 -0400
 categories: Linux
-thumbnail: LinuxBible.png
+thumbnail: /assets/img/posts/LinuxBible.png
 comments: true
 ---
 
