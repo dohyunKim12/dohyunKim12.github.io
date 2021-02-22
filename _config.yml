@@ -51,12 +51,12 @@ author_work_experiences:
 
 # Education
 author_education_details:
-              - college_logo: mit.png
-                college_name: MIT
-                college_url: https://mit.org
-                college_degree: CS Engineer
-                description: Bachelor of Technology
-                visibility: false
+              - college_logo: soongsil.png
+                college_name: Soongsil univ.
+                college_url: http://ssu.ac.kr/main/
+                college_degree: Electronic Engineering
+                description: School of Electronic & IT Engineering
+                visibility: true
 
 # Projects
 author_project_details:
