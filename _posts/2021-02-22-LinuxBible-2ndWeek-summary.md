@@ -6,6 +6,7 @@ author: Dohyun Kim
 date: 2021-02-22 11:59:28 -0400
 categories: Linux
 thumbnail: ![image](https://user-images.githubusercontent.com/72643027/108458588-54f7b180-72b8-11eb-91ac-0409e2ea22de.png)
+comments: true
 ---
 
 # LinuxBible Summary(CH07~CH11)
