@@ -36,18 +36,18 @@ typewrite-text: Blog for Linux, Network, Could Computing
 
 # Experiences
 author_work_experiences:
-            - company_name: Google
-              company_logo: google.png
-              company_url: https://google.com
+            - company_name: Gluesys
+              company_logo: gluesys.png
+              company_url: https://gluesys.com
               designation: Software Engineer
-              description: Worked on various Google Products
+              description: Worked on AnyStor-E Products
               visibility: true
             - company_name: Microsoft
               company_logo: microsoft.png
               company_url: https://microsoft.com
               designation: Azure Developer
               description: Worked on various Azure Cloud Products
-              visibility: true
+              visibility: false
 
 # Education
 author_education_details:
@@ -56,12 +56,12 @@ author_education_details:
                 college_url: https://mit.org
                 college_degree: CS Engineer
                 description: Bachelor of Technology
-                visibility: true
+                visibility: false
 
 # Projects
 author_project_details:
               - project_thumbnail: gamershub.png
-                project_title: Gamers Hub
+                project_title: sshell
                 project_description: A Platform built for Gamers and Game Devs
                 project_url: https://gamershub.in
                 visibility: true
