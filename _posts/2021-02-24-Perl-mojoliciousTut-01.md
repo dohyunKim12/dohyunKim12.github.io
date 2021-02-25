@@ -5,7 +5,7 @@ summary: How to use Mojolicious web framework
 author: Dohyun Kim
 date: 2021-02-24 21:30:00 -0400
 categories: DesignPattern
-thumbnail: /assets/img/posts/mojoliciousTumb.png
+thumbnail: /assets/img/posts/mojoliciousThumb.png
 comments: true
 ---
 
