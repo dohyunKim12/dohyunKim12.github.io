@@ -34,17 +34,10 @@ layout: default
             <a href="{{post.url}}" class="article-card-link">
               <div id="article-container">
                 <div id="article-img">
-                  {% if post.author %}
-                    {% assign author = post.author %}
-                    {% if author %}
-                     {% assign author_data = site.data.authors[author] %}
-                     <img
-                      src="{{site.url}}{{site.baseurl}}/assets/img/authors/{{author_data.avatar}}"
+                    <img src="/assets/img/profile2.png"
                       width="50px"
                       height="50px"
-                   />
-                    {% endif %}
-                  {% endif %}
+                    />
 
                 </div>
                 <div id="article-link">

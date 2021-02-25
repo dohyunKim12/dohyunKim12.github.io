@@ -1,13 +1,13 @@
 ---
 layout: page
 title: DesignPattern
-permalink: /blog/categories/designpattern/
+permalink: /blog/categories/Designpattern/
 ---
 
 <h5> Posts by Category : {{ page.title }} </h5>
 
 <div class="card">
-{% for post in site.categories.designpattern %}
+{% for post in site.categories.Designpattern %}
  <li class="category-posts"><span>{{ post.date | date_to_string }}</span> &nbsp; <a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
 </div>
