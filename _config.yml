@@ -28,7 +28,7 @@ urls:
 
 author_logo: profile2.png
 author: Dohyun Kim
-author_bio: Network, Linux, Cloud
+author_bio: Network, Linux, Cloud Computing
 author_email: "kdh951102@gmail.com"
 author_location: Korea
 author_website_url: "https://dohyunkim12.github.io"
@@ -60,15 +60,15 @@ author_education_details:
 
 # Projects
 author_project_details:
-              - project_thumbnail: gamershub.png
+              - project_thumbnail: sshell.png
                 project_title: sshell
-                project_description: A Platform built for Gamers and Game Devs
-                project_url: https://gamershub.in
+                project_description: A Command Line Interface on web
+                project_url: https://github.com/gluesys/sshell
                 visibility: true
-              - project_thumbnail: hack4r.PNG
-                project_title: Hack4r
-                project_description: A Platform built for Hackers and Penetration Testers
-                project_url: https://hack4r.com
+              - project_thumbnail: emotionary.png
+                project_title: Emotionary
+                project_description: Analyze your emotion by written diary.
+                project_url: https://github.com/yunakim2/mobile_project
                 visibility: true
 
 # social links
@@ -91,10 +91,10 @@ disqus_shortname: dohyunkim12-github-io
 wakatime_username: dohyunKim12
 
 # mailchimp embedded form url (newsletter):
-mailchimp_form_url: https://sujaykundu.us10.list-manage.com/subscribe/post?u=50bab1c85eae24ecfb0f68361&amp;id=3a2dd721d0
+#mailchimp_form_url: https://sujaykundu.us10.list-manage.com/subscribe/post?u=50bab1c85eae24ecfb0f68361&amp;id=3a2dd721d0
 
 # formspree (contact form)
-formspree_email: johndoe@gmail.com
+#formspree_email: johndoe@gmail.com
 
 # syntax highlighter
 markdown: kramdown
