@@ -9,8 +9,6 @@ thumbnail: /assets/img/posts/gitlab.png
 comments: true
 ---
 
-# GMS UnitTest tutorial (1)
-
 Summary
 ---
 회사의 Gitlab에서 GMS project를 fork 떠 와서 나의 개인 repository에 옮긴 다음, API 명세를 openAPI 형태에 맞춰 작성하고, 
