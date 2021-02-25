@@ -42,7 +42,9 @@ debugging이 가능하고 작성한 API에 대해 method 별로 실행해 볼 �
 
 GMS 하위에서 ```MOCK_ETCD=1 prove -l -v -m -Ilibgms -I../GSM/lib```
 으로 test를 진행해본다.
+
 ![image](https://user-images.githubusercontent.com/72643027/109003149-6b53a200-76ea-11eb-8656-531eabc579c4.png){: width="30%" height="30%"}
+
 이와 같이 All tests success가 나와야 정상. 그렇지 않으면 fork 해 온 project에 문제가 있거나  
 필요한 module이 설치되지 않아서이다.
 
