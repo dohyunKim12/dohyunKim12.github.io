@@ -38,7 +38,7 @@ debugging이 가능하고 작성한 API에 대해 method 별로 실행해 볼 �
 
 먼저 dir를 하나 만들고 하위에 GMS와 GSM을 clone받는다.
 
-![image](https://user-images.githubusercontent.com/72643027/109002781-fe400c80-76e9-11eb-8b34-9b2aa89d476c.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109002781-fe400c80-76e9-11eb-8b34-9b2aa89d476c.png){: width="70%" height="70%"}
 
 GMS 하위에서 ```MOCK_ETCD=1 prove -l -v -m -Ilibgms -I../GSM/lib```
 으로 test를 진행해본다.
@@ -68,6 +68,7 @@ HTTP method에 대해 살펴보면
 와 같이 사용된다. (출처 - gluesys redmine) 
 
 작성할 API들은 다음과 같다.
+
 | HTTP method | URI     | Description|
 |-------------|---------|------------|
 |GET | ```/api/v3/bikes```|바이크들의 목록을 조회.|
@@ -82,7 +83,7 @@ HTTP method에 대해 살펴보면
 
 이제 이 API들을 api.yaml 파일에 작성하는데, ```paths```하위에 추가하고 각 method들에 대해 HTTP request와 response를 작성해 줄 것이다.
 
-![image](https://user-images.githubusercontent.com/72643027/109005521-617f6e00-76ed-11eb-8ed6-24625a94aa60.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109005521-617f6e00-76ed-11eb-8ed6-24625a94aa60.png){: width="70%" height="70%"}
 
 api.yaml 파일을 열었더니 다음과 같이 보인다. 이제 paths 하위에 URI를 작성한다. api.yaml을 작성시에는 indent에 굉장히 주의를 기울여야 한다. (현재 yaml파일에는 indent가 띄어쓰기 2칸으로 설정되어 있음.)
 
@@ -301,7 +302,7 @@ response는 단순하게 201-Created 로 응답하며 description 만 작성해�
 
 이제 최종 반환값에 entity값과 BasicResponse가 포함되어 명확하게 나오는 것을 알 수 있다.
 
-![image](https://user-images.githubusercontent.com/72643027/109095753-afcd5500-775f-11eb-9282-48236fd55c7b.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109095753-afcd5500-775f-11eb-9282-48236fd55c7b.png){: width="70%" height="70%"}
 
 에러 없이 **Swagger Editor**에 API 문서가 잘 보여야 한다.   
 여기까지 확인했으면, 한번 확인 차원에서 test code를 돌려보자. (작성한 API를 test하는 것은 아님.)
@@ -312,7 +313,7 @@ response는 단순하게 201-Created 로 응답하며 description 만 작성해�
 ```perl -Ilib -Ilibgms -I../GSM/lib script/gms routes```  로 API 가 잘 추가되었는지 살펴본다.  
 (실제로는 이렇게 하면 모든 API 들이 출력되기 때문에 grep을 함께 이용하는 것이 편리.)
 
-![image](https://user-images.githubusercontent.com/72643027/109105574-91705500-7771-11eb-9266-ad7bb73d8e05.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109105574-91705500-7771-11eb-9266-ad7bb73d8e05.png){: width="70%" height="70%"}
 
 이렇게 포함 된 것이 확인되었다면 이제 Bike API에 대해 Test code를 작성하고 Controller (Bike class)를 작성해 보자.
 
@@ -320,7 +321,7 @@ response는 단순하게 201-Created 로 응답하며 description 만 작성해�
 
 t/lib/Test/ 하위에 Bike.pm 파일을 하나 생성한다. 템플릿이 존재하지 않으니, 다른 test code에서 test를 위한 code 앞부분만 살짝 가져오자.
 
-![image](https://user-images.githubusercontent.com/72643027/109106353-ed87a900-7772-11eb-912c-99211600b17c.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109106353-ed87a900-7772-11eb-912c-99211600b17c.png){: width="70%" height="70%"}
 
 이 상태에서 이제 test code를 작성한다. 먼저 정의한 get method에서 x-mojo-to 키워드로 Bike 컨트롤러의 list_by_page 라는 메소드로 넘겨주기로 정의하였으므로,  
     sub로 list_by_bike 라는 API에 대해 test하는 method를 작성한다.
@@ -404,17 +405,17 @@ UnitTest
 ---
 이제 ```MOCK_ETCD=1 prove -lvm -Ilibgms -I../GSM/lib``` 으로 test를 진행해 보자.
 
-![image](https://user-images.githubusercontent.com/72643027/109112422-f92c9d00-777d-11eb-9e79-28f696523e11.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109112422-f92c9d00-777d-11eb-9e79-28f696523e11.png){: width="70%" height="70%"}
 
 이와 같이 모두 성공함을 볼 수 있다. (만약 실패하더라도 diag keyword 덕분에 data를 볼 수 있어서 code를 찾아 얼마든지 디버깅 가능하다.)
 
 마지막으로 ```prove```명령어로 test 시, 추가적인 option들에 대해 알아보자.
 
 ```MOCK_ETCD=1 prove -lvm -Ilibgms -I../GSM/lib :: --statistics``` 이처럼 입력 시 모든 test class 갯수와 인스턴스, 메소드 수를 포함해 Total test 값들을 볼 수 있다.
-![image](https://user-images.githubusercontent.com/72643027/109113169-26c61600-777f-11eb-847c-9921d24ca5f9.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109113169-26c61600-777f-11eb-847c-9921d24ca5f9.png){: width="70%" height="70%"}
 
 ```MOCK_ETCD=1 prove -lvm -Ilibgms -I../GSM/lib :: --class Test::Bike``` 다음과 같이 입력하면 Test::Bike에 해당하는 클래스만 test 가 가능하다.
-![image](https://user-images.githubusercontent.com/72643027/109113316-6856c100-777f-11eb-8e37-42de1a014206.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109113316-6856c100-777f-11eb-8e37-42de1a014206.png){: width="70%" height="70%"}
 
 이렇게 작성한 API에 대해 Test가 통과했다.
 
@@ -422,9 +423,9 @@ UnitTest
 
 이후 과정으로는 이제 이 code를 Commit 하여 Gitlab에 올리게 되면,
 
-![image](https://user-images.githubusercontent.com/72643027/109119600-3e55cc80-7788-11eb-9f0d-250ffd5c2ab7.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109119600-3e55cc80-7788-11eb-9f0d-250ffd5c2ab7.png){: width="70%" height="70%"}
 
-![image](https://user-images.githubusercontent.com/72643027/109119769-7826d300-7788-11eb-8915-e2d0c27e9272.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109119769-7826d300-7788-11eb-8915-e2d0c27e9272.png){: width="70%" height="70%"}
 
 이렇게 Gitlab의 CI/CD 에서 자동적으로 Test를 진행하게 된다. (새로 작성한 API 뿐만 아니라 전체 Unit Test 들을 진행하게 됨.)
 
