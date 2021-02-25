@@ -43,7 +43,7 @@ debugging이 가능하고 작성한 API에 대해 method 별로 실행해 볼 �
 GMS 하위에서 ```MOCK_ETCD=1 prove -l -v -m -Ilibgms -I../GSM/lib```
 으로 test를 진행해본다.
 
-![image](https://user-images.githubusercontent.com/72643027/109003149-6b53a200-76ea-11eb-8656-531eabc579c4.png){: width="30%" height="30%"}
+![image](https://user-images.githubusercontent.com/72643027/109003149-6b53a200-76ea-11eb-8656-531eabc579c4.png){: width="70%" height="70%"}
 
 이와 같이 All tests success가 나와야 정상. 그렇지 않으면 fork 해 온 project에 문제가 있거나  
 필요한 module이 설치되지 않아서이다.
@@ -103,7 +103,7 @@ GMS에서는 각 method의 하위에 공통적으로 들어가야할 field들이
 |field 명| Description|
 |--------|-----------|
 |x-mojo-to|x로 시작하는 것은 확장 키워드. Mojolicious에서 제공. <br/> 어떤 API controller에서 이 API요청을 처리할 것인지 정의. <br/> ```컨트롤러#메서드```|
-|operationId|각 API에 대한 식별자. 전역적으로 고유한 값이어야 함.|
+|operationId  |각 API에 대한 식별자. 전역적으로 고유한 값이어야 함.|
 |summary|API의 간략한 설명.|
 |description|API에 대한 자세한 설명. 최대한 명확하고 디테일하게 적어줘야 한다.|
 
@@ -194,12 +194,12 @@ response 부분에는 content를 작성하여 응답 내용을 정의하였다.
 |--------|-----------|
 |application/json|JSON format의 data|
 |application/xml|XML format의 data|
-|application/x-www-form-urlencoded|RFC1738에 따르는 URL형식으로 encoding된 data.|
+|application/x-www-form-urlencoded  |RFC1738에 따르는 URL형식으로 encoding된 data.|
 |multipart/form-data|Binary data. (주로 file 등)|
 |text/plain|단순 text data|
 |text/html|HTML data|
 |application/pdf|PDF data|
-|image/png|PNG format의 img|
+|image/png|PNG format의 img|   
 
 또한 **parameters**를 이용하여 request 정의 시 4가지 위치가 존재한다.
 
@@ -207,8 +207,8 @@ response 부분에는 content를 작성하여 응답 내용을 정의하였다.
 |----|-----------|
 |query|URI 뒤에 따라오는 질의에서 매개변수를 가져오도록 지정. <br/> ex) ```/api/v3/bikes?id=r6``` 의  경우```r6``` 가 ```id``` 매개변수의 값이 됨.|
 |path|URI경로 상에서 ```{...}``` 위치 지정자를 통해 매개변수를 가져오도록 지정. <br/> ex) ```/api/v3/bikes/{id}``` 로 지정시 ```/api/v3/bikes/r6``` 요청이 발생했을 대 r6가 id 매개변수의 값이 됨.
-|header|수신한 요청의 HTTP header에 지정된 키값 쌍에서 매개변수를 가져오도록 지정.|
-|cookie|수신한 요청의 HTTP cookie 에서 매개변수를 가져오도록 지정.|
+|header  |수신한 요청의 HTTP header에 지정된 키값 쌍에서 매개변수를 가져오도록 지정.|
+|cookie  |수신한 요청의 HTTP cookie 에서 매개변수를 가져오도록 지정.|
 
 이제 post method의 request와 response를 정의해 보자.
 ```yaml
