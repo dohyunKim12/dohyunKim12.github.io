@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Linux
-permalink: /blog/categories/linux/
+permalink: /blog/categories/Linux/
 ---
 
 <h5> Posts by Category : {{ page.title }} </h5>
