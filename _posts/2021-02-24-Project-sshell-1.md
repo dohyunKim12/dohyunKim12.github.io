@@ -4,7 +4,7 @@ title: "Project sshell(1)"
 summary: architecture, layout, REST API
 author: Dohyun Kim
 date: 2021-02-24 21:09:00 -0400
-categories: DesignPattern
+category: DesignPattern
 thumbnail: /assets/img/posts/sshell.png
 comments: true
 ---

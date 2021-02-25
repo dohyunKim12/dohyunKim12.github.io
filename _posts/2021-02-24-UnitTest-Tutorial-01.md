@@ -4,7 +4,7 @@ title: "GMS UnitTest tutorial(1)"
 summary: Writting openAPI
 author: Dohyun Kim
 date: 2021-02-24 21:30:00 -0400
-categories: DesignPattern
+category: DesignPattern
 thumbnail: /assets/img/posts/gitlab.png
 comments: true
 ---
