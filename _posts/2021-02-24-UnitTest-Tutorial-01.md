@@ -72,7 +72,7 @@ HTTP method에 대해 살펴보면
 |GET | ```/api/v3/bikes```|바이크들의 목록을 조회.|
 |GET | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 조회.|
 |POST| ```/api/v3/bikes```|바이크를 추가.|
-|POST| ```/api/v3/bikes/search```|조건에 해당하는 바이크들을 검색.|
+|POST| ```/api/v3/bikes/search```  |조건에 해당하는 바이크들을 검색.|
 |PUT | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 수정(교체).|
 |PATCH | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보 일부분을 수정.|
 |DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|
@@ -100,10 +100,10 @@ GMS에서는 각 method의 하위에 공통적으로 들어가야할 field들이
 
 |field 명| Description|
 |--------|-----------|
-|x-mojo-to|x로 시작하는 것은 확장 키워드. Mojolicious에서 제공. <br/> 어떤 API controller에서 이 API요청을 처리할 것인지 정의. <br/> ```컨트롤러#메서드```|
-|operationId  |각 API에 대한 식별자. 전역적으로 고유한 값이어야 함.|
+|x-mojo-to  |x로 시작하는 것은 확장 키워드. Mojolicious에서 제공. <br/> 어떤 API controller에서 이 API요청을 처리할 것인지 정의. <br/> ```컨트롤러#메서드```|
+|operationId |각 API에 대한 식별자. 전역적으로 고유한 값이어야 함.|
 |summary|API의 간략한 설명.|
-|description|API에 대한 자세한 설명. 최대한 명확하고 디테일하게 적어줘야 한다.|
+|description  |API에 대한 자세한 설명. 최대한 명확하고 디테일하게 적어줘야 한다.|
 
 이 field들은 공통적으로 모든 method 정의 시 들어가야 한다.
 
@@ -188,8 +188,8 @@ get method의 request정의 부분에는 **parameters**를 이용하여 HTTP req
 response 부분에는 content를 작성하여 응답 내용을 정의하였다.  
 이 때 'MIME 표준에 의한 content의 유형' 에는 다음과 같은 것들이 존재한다.
 
-|Contents|Description|
-|--------|-----------|
+|Contents                           |Description|
+|-----------------------------------|-----------|
 |application/json|JSON format의 data|
 |application/xml|XML format의 data|
 |application/x-www-form-urlencoded  |RFC1738에 따르는 URL형식으로 encoding된 data.|
@@ -421,9 +421,9 @@ UnitTest
 
 이후 과정으로는 이제 이 code를 Commit 하여 Gitlab에 올리게 되면,
 
-![image](https://user-images.githubusercontent.com/72643027/109119600-3e55cc80-7788-11eb-9f0d-250ffd5c2ab7.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109119600-3e55cc80-7788-11eb-9f0d-250ffd5c2ab7.png){: width="90%" height="90%"}
 
-![image](https://user-images.githubusercontent.com/72643027/109119769-7826d300-7788-11eb-8915-e2d0c27e9272.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109119769-7826d300-7788-11eb-8915-e2d0c27e9272.png){: width="90%" height="90%"}
 
 이렇게 Gitlab의 CI/CD 에서 자동적으로 Test를 진행하게 된다. (새로 작성한 API 뿐만 아니라 전체 Unit Test 들을 진행하게 됨.)
 

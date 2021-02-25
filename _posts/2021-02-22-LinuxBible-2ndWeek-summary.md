@@ -149,7 +149,7 @@ root 권한이 필요할 때는 언제인가?
 ```
 $ sudo find / -name 'system-config-*'
 ```
-![image](https://user-images.githubusercontent.com/72643027/108335286-1d382d80-7216-11eb-86fc-5b281fd58365.png)
+![image](https://user-images.githubusercontent.com/72643027/108335286-1d382d80-7216-11eb-86fc-5b281fd58365.png){: width="70%" height="70%"}
 
 root 계정을 포함한 사용자 계정 설정들을 보고 싶으면 /etc/passwd 파일을 살펴보면 된다.  
 **su 와 su -** : su는 substitute user의 줄임말로 현 사용자를 로그아웃 하지 않고, 다른 사용자의 권한을 획득할 때 사용.   
@@ -209,7 +209,8 @@ YUM으로 RPM패키지를 관리하면 RPM패키지의 의존성 문제를 해�
     ```
     # yum list installed py*      # py로 시작하는 설치된 패키지 전부 출력.
     ```
-    ![image](https://user-images.githubusercontent.com/72643027/108359156-f9371500-7232-11eb-9aba-0834bff7cb9a.png)
+    ![image](https://user-images.githubusercontent.com/72643027/108359156-f9371500-7232-11eb-9aba-0834bff7cb9a.png){: width="70%" height="70%"}
+
 
 - Package 설치
     ```
@@ -289,7 +290,9 @@ dohyunkim:x:1000:1000:dohyunkim,,,:/home/dohyunkim:/usr/bin/zsh
 1. /etc/fstab 파일의 5번째 field에 acl 옵션을 추가. -> 부팅 시 파일 시스템을 자동으로 mount 하게됨.   
 ```$ tutne2fs -o acl /dev/sdc1``` (맨 마지막 parameter는 새로 추가된 filesystem 위치)
 2. /etc/fstab 파일 수정. etx4 뒤에 acl을 삽입해준다. -> acl이 자동, 혹은 수동으로 mount 되는 것에 관계없이 작동.
-![image](https://user-images.githubusercontent.com/72643027/108447475-43f07580-72a3-11eb-8d98-06b38f7f5732.png)
+
+![image](https://user-images.githubusercontent.com/72643027/108447475-43f07580-72a3-11eb-8d98-06b38f7f5732.png){: width="70%" height="70%"}
+
 3. filesystem을 mount 할 때 수동으로 mount 명령어에 acl옵션 추가. -> 수동으로 mount    
 ```$ mount -o acl /dev/sdc1 /var/stuff```
 
@@ -316,7 +319,8 @@ $ touch s ss sss
 $ cd /mnt/salesFoos
 $ touch s
 ```
-![image](https://user-images.githubusercontent.com/72643027/108451081-8ae16980-72a9-11eb-94b5-b4928af6285e.png)
+![image](https://user-images.githubusercontent.com/72643027/108451081-8ae16980-72a9-11eb-94b5-b4928af6285e.png){: width="70%" height="70%"}
+
 /mnt 하위의 salestools는 group이 sales로 지정되었음. (chmod 2775)   
 drwxrw**s**r-x: salestools 하위 생성되는 file들은 GID가 sales로 설정되면서 sales 그룹에 속해있는 누구나 rw 가능해짐.   
 
@@ -328,7 +332,8 @@ LDAP는 현재 Linux에서 Directory service 를 위한 표준이다.
 - 회사에서 구성원의 조직도나 팀별 email주소 등을 LDAP service로 관리
 - 흔하게는 특정 영역에서 이용자명과 passwd를 확인하여 인증하는 용도로 사용
 
-![image](https://user-images.githubusercontent.com/72643027/108458588-54f7b180-72b8-11eb-91ac-0409e2ea22de.png)
+![image](https://user-images.githubusercontent.com/72643027/108458588-54f7b180-72b8-11eb-91ac-0409e2ea22de.png){: width="70%" height="70%"}
+
 
 이와 같은 상황에서 login 을 시도하려는 host는 중앙집중화된 인증 서버를 통해 user account의 인증을 받는다.   
 이처럼 인증하는 과정에 LDAP이라는 protocol이 이용된다.
