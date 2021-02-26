@@ -72,7 +72,7 @@ HTTP method에 대해 살펴보면
 |GET | ```/api/v3/bikes```|바이크들의 목록을 조회.|
 |GET | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 조회.|
 |POST| ```/api/v3/bikes```|바이크를 추가.|
-|POST| ```/api/v3/bikes/search```  |조건에 해당하는 바이크들을 검색.|
+|POST| ```/api/v3/bikes/search``` &nbsp;&nbsp; |조건에 해당하는 바이크들을 검색.|
 |PUT | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 수정(교체).|
 |PATCH | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보 일부분을 수정.|
 |DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|
