@@ -76,7 +76,8 @@ HTTP method에 대해 살펴보면
 |POST| ```/api/v3/bikes/search```  |조건에 해당하는 바이크들을 검색.|
 |PUT | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 수정(교체).|
 |PATCH | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보 일부분을 수정.|
-|DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|<br/>
+|DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|
+{:.mbtablestyle}<br/>
 
 참고로 API 경로(URI)에서 자원을 나타낼 때에는 복수형으로 명명한다.
 
