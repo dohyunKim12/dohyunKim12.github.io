@@ -62,7 +62,7 @@ HTTP method에 대해 살펴보면
 |PUT | 자원의 교체 혹은 수정(all)|
 |PATCH| 자원의 일부만을 수정 |
 |DELETE | 자원의 삭제|
-{:.table-striped}<br/>
+{:.table-striped} <br/>
 
 와 같이 사용된다. (출처 - gluesys redmine) 
 
