@@ -55,13 +55,13 @@ OpenAPI
 
 HTTP method에 대해 살펴보면  
 
-| HTTP method | function|
+| HTTP method &nbsp | function|
 |-------------|---------|
 | GET        |자원의 조회|
 |POST | 자원에 대한 모든 비멱등 연산과 정보를 은닉할 필요가 있는 조회, 자원에 종속되지 않는 명령형 API|
 |PUT | 자원의 교체 혹은 수정(all)|
 |PATCH| 자원의 일부만을 수정 |
-|DELETE | 자원의 삭제|
+|DELETE | 자원의 삭제|  
 
 와 같이 사용된다. (출처 - gluesys redmine) 
 
@@ -75,7 +75,7 @@ HTTP method에 대해 살펴보면
 |POST| ```/api/v3/bikes/search```  |조건에 해당하는 바이크들을 검색.|
 |PUT | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 수정(교체).|
 |PATCH | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보 일부분을 수정.|
-|DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|
+|DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|   
 
 참고로 API 경로(URI)에서 자원을 나타낼 때에는 복수형으로 명명한다.
 
