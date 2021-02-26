@@ -55,20 +55,20 @@ OpenAPI
 
 HTTP method에 대해 살펴보면  
 
-| HTTP method | function|
+| HTTP method &nbsp;&nbsp; | function|
 |-------------|---------|
 | GET        |자원의 조회|
 |POST | 자원에 대한 모든 비멱등 연산과 정보를 은닉할 필요가 있는 조회, 자원에 종속되지 않는 명령형 API|
 |PUT | 자원의 교체 혹은 수정(all)|
 |PATCH| 자원의 일부만을 수정 |
 |DELETE | 자원의 삭제|
-{:.table-striped}
+{:.table-striped}<br/>
 
 와 같이 사용된다. (출처 - gluesys redmine) 
 
 작성할 API들은 다음과 같다.
 
-| HTTP method | URI     | Description|
+| HTTP method &nbsp;&nbsp;  | URI     | Description|
 |-------------|---------|------------|
 |GET | ```/api/v3/bikes```|바이크들의 목록을 조회.|
 |GET | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 조회.|
@@ -76,8 +76,7 @@ HTTP method에 대해 살펴보면
 |POST| ```/api/v3/bikes/search```  |조건에 해당하는 바이크들을 검색.|
 |PUT | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 수정(교체).|
 |PATCH | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보 일부분을 수정.|
-|DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|
-{.mbtablestyle}
+|DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|<br/>
 
 참고로 API 경로(URI)에서 자원을 나타낼 때에는 복수형으로 명명한다.
 
@@ -104,9 +103,9 @@ GMS에서는 각 method의 하위에 공통적으로 들어가야할 field들이
 |field 명| Description|
 |--------|-----------|
 |x-mojo-to  |x로 시작하는 것은 확장 키워드. Mojolicious에서 제공. <br/> 어떤 API controller에서 이 API요청을 처리할 것인지 정의. <br/> ```컨트롤러#메서드```|
-|operationId |각 API에 대한 식별자. 전역적으로 고유한 값이어야 함.|
+|operationId &nbsp; &nbsp; |각 API에 대한 식별자. 전역적으로 고유한 값이어야 함.|
 |summary|API의 간략한 설명.|
-|description  |API에 대한 자세한 설명. 최대한 명확하고 디테일하게 적어줘야 한다.|
+|description  |API에 대한 자세한 설명. 최대한 명확하고 디테일하게 적어줘야 한다.|<br/>
 
 이 field들은 공통적으로 모든 method 정의 시 들어가야 한다.
 
@@ -195,12 +194,12 @@ response 부분에는 content를 작성하여 응답 내용을 정의하였다.
 |-----------------------------------|-----------|
 |application/json|JSON format의 data|
 |application/xml|XML format의 data|
-|application/x-www-form-urlencoded  |RFC1738에 따르는 URL형식으로 encoding된 data.|
+|application/x-www-form-urlencoded &nbsp; &nbsp;  |RFC1738에 따르는 URL형식으로 encoding된 data.|
 |multipart/form-data|Binary data. (주로 file 등)|
 |text/plain|단순 text data|
 |text/html|HTML data|
 |application/pdf|PDF data|
-|image/png|PNG format의 img|   
+|image/png|PNG format의 img|<br/>
 
 또한 **parameters**를 이용하여 request 정의 시 4가지 위치가 존재한다.
 
@@ -208,8 +207,8 @@ response 부분에는 content를 작성하여 응답 내용을 정의하였다.
 |----|-----------|
 |query|URI 뒤에 따라오는 질의에서 매개변수를 가져오도록 지정. <br/> ex) ```/api/v3/bikes?id=r6``` 의  경우```r6``` 가 ```id``` 매개변수의 값이 됨.|
 |path|URI경로 상에서 ```{...}``` 위치 지정자를 통해 매개변수를 가져오도록 지정. <br/> ex) ```/api/v3/bikes/{id}``` 로 지정시 ```/api/v3/bikes/r6``` 요청이 발생했을 대 r6가 id 매개변수의 값이 됨.
-|header  |수신한 요청의 HTTP header에 지정된 키값 쌍에서 매개변수를 가져오도록 지정.|
-|cookie  |수신한 요청의 HTTP cookie 에서 매개변수를 가져오도록 지정.|
+|header  &nbsp; &nbsp; |수신한 요청의 HTTP header에 지정된 키값 쌍에서 매개변수를 가져오도록 지정.|
+|cookie  |수신한 요청의 HTTP cookie 에서 매개변수를 가져오도록 지정.|<br/>
 
 이제 post method의 request와 response를 정의해 보자.
 ```yaml
