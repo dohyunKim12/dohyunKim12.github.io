@@ -55,13 +55,14 @@ OpenAPI
 
 HTTP method에 대해 살펴보면  
 
-| HTTP method &nbsp | function|
+| HTTP method | function|
 |-------------|---------|
 | GET        |자원의 조회|
 |POST | 자원에 대한 모든 비멱등 연산과 정보를 은닉할 필요가 있는 조회, 자원에 종속되지 않는 명령형 API|
 |PUT | 자원의 교체 혹은 수정(all)|
 |PATCH| 자원의 일부만을 수정 |
-|DELETE | 자원의 삭제|  
+|DELETE | 자원의 삭제|
+{:.table-striped}
 
 와 같이 사용된다. (출처 - gluesys redmine) 
 
@@ -75,7 +76,8 @@ HTTP method에 대해 살펴보면
 |POST| ```/api/v3/bikes/search```  |조건에 해당하는 바이크들을 검색.|
 |PUT | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보를 수정(교체).|
 |PATCH | ```/api/v3/bikes/{id}```|이름을 통해 특정 바이크의 정보 일부분을 수정.|
-|DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|   
+|DELETE | ```/api/v3/bikes/{id}```|이름을 통해 바이크를 삭제.|
+{.mbtablestyle}
 
 참고로 API 경로(URI)에서 자원을 나타낼 때에는 복수형으로 명명한다.
 
@@ -98,6 +100,7 @@ method마다 각각을 적절히 사용하여 정의해 보자. (vi에서 작업
 GMS에서는 각 method의 하위에 공통적으로 들어가야할 field들이 존재한다.
 각 field가 의미하는 바는 다음과 같다.
 
+{:class="table table-bordered"}
 |field 명| Description|
 |--------|-----------|
 |x-mojo-to  |x로 시작하는 것은 확장 키워드. Mojolicious에서 제공. <br/> 어떤 API controller에서 이 API요청을 처리할 것인지 정의. <br/> ```컨트롤러#메서드```|
