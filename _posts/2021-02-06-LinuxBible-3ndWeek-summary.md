@@ -17,11 +17,11 @@ CH12(Managing Disks and Filesystems)
 LVM은 크게 PV(Physical Volume), VG(Volume Group), LV(Logical Volume) 으로 구분되어 있다.  
 - PV(Physical Volume) - PV는 실제 물리 디스크를 LVM용도로 초기화한 물리 디스크 또는 파티션. 예를 들어 /dev/sda, /dev/sda1 등이 PV에 속함.  
 
-![image](https://user-images.githubusercontent.com/72643027/109271295-a96bd580-7852-11eb-8314-b1f3b16add6f.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109271295-a96bd580-7852-11eb-8314-b1f3b16add6f.png){: width="30%" height="30%"}
 
 - VG(Volume Group) - VG는 하나 이상의 PV를 가지고 만든 물리적 volume의 집합. PV는 단 하나의 VG에만 포함될 수 있다. VG를 만든다는 것은 논리적 volume을 할당할 수 있는 disk 공간 풀 을 생성하는 것이다.
 
-![image](https://user-images.githubusercontent.com/72643027/109271589-167f6b00-7853-11eb-9b71-534909c2479a.png){: width="50%" height="50%"}
+![image](https://user-images.githubusercontent.com/72643027/109271589-167f6b00-7853-11eb-9b71-534909c2479a.png){: width="30%" height="30%"}
 
 - LV(Logical Volume) - LV는 사용자가 직접 다루는 논리적인 volume 공간. 여러 종류가 존재한다.
     + linear volume
@@ -30,7 +30,7 @@ LVM은 크게 PV(Physical Volume), VG(Volume Group), LV(Logical Volume) 으로 �
     + mirror volume
     + thin volume  
 
-![image](https://user-images.githubusercontent.com/72643027/109271849-6d854000-7853-11eb-8686-386377784c51.png){: width="50%" height="50%"} 
+![image](https://user-images.githubusercontent.com/72643027/109271849-6d854000-7853-11eb-8686-386377784c51.png){: width="30%" height="30%"} 
 
 대략 이렇게 존재한다고 생각할 수 있다.
 
@@ -44,7 +44,7 @@ LVM은 크게 PV(Physical Volume), VG(Volume Group), LV(Logical Volume) 으로 �
 
 실습을 위해 32 기가 USB를 장착.
 
-![image](https://user-images.githubusercontent.com/72643027/109277654-f5227d00-785a-11eb-9074-de6254fdb204.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109277654-f5227d00-785a-11eb-9074-de6254fdb204.png){: width="50%" height="50%"}
 
 이렇게 /dev/sda 로 disk 위치가 잡혔다. 
 
@@ -52,14 +52,14 @@ LVM은 크게 PV(Physical Volume), VG(Volume Group), LV(Logical Volume) 으로 �
 
 ![image](https://user-images.githubusercontent.com/72643027/109278959-83e3c980-785c-11eb-94e3-36a284fb1b4c.png){: width="70%" height="70%"}
 
-![image](https://user-images.githubusercontent.com/72643027/109279779-82ff6780-785d-11eb-9ae8-93c28da12469.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109279779-82ff6780-785d-11eb-9ae8-93c28da12469.png){: width="50%" height="50%"}
 
 이렇게 자동으로 sda1, sda2, sda3 으로 설정되었다.
 
 #### 1. PV 생성
 ```fdisk /dev/sda``` 명령어로 각 disk들의 타입을 리눅스의 LVM으로 변경.
 
-![image](https://user-images.githubusercontent.com/72643027/109280866-e76ef680-785e-11eb-8c4e-592c0ae4f557.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109280866-e76ef680-785e-11eb-8c4e-592c0ae4f557.png){: width="50%" height="50%"}
 
 이후 ```pvcreate /dev/sda1 /dev/sda2 /dev/sda3```으로 각 볼륨들을 PV로 만들어줌. 
 
@@ -69,25 +69,25 @@ LVM은 크게 PV(Physical Volume), VG(Volume Group), LV(Logical Volume) 으로 �
 
 ```vgdisplay```로 Volume Group이 잘 생성되었는지 확인.
 
-![image](https://user-images.githubusercontent.com/72643027/109281747-07eb8080-7860-11eb-8f29-ec7d428c340c.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109281747-07eb8080-7860-11eb-8f29-ec7d428c340c.png){: width="50%" height="50%"}
 
 #### 3. LV 만들기
 
 ```lvcreate```로 Volume Group의 파티션 생성. (하드디스크 조작 명령어는 fdisk)
 
-![image](https://user-images.githubusercontent.com/72643027/109282287-ad065900-7860-11eb-8a41-3541bbeffb87.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109282287-ad065900-7860-11eb-8a41-3541bbeffb87.png){: width="50%" height="50%"}
 
 이렇게 Physical Volume 10GB 3개를 하나의 Volume Group으로 합친 뒤(30GB), Logical Volume 500MB 6개로 나누어 보았다.(3GB)
 
 결과 확인.
 
-![image](https://user-images.githubusercontent.com/72643027/109282717-3f0e6180-7861-11eb-84d6-f6c000eda41f.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109282717-3f0e6180-7861-11eb-84d6-f6c000eda41f.png){: width="50%" height="50%"}
 
 #### 4. FileSystem Format
 
 ```mkfs -t ext4 /dev/myGroup/myLV1``` 으로 파일시스템 포맷을 해줌. (myLV2,3,4,5,6 도 동일)
 
-![image](https://user-images.githubusercontent.com/72643027/109283322-fe631800-7861-11eb-80ef-202298aca227.png){: width="70%" height="70%"}
+![image](https://user-images.githubusercontent.com/72643027/109283322-fe631800-7861-11eb-80ef-202298aca227.png){: width="50%" height="50%"}
 
 #### 5. Mount
 
