@@ -163,5 +163,110 @@ sar Options
     -u: CPU 사용량
     -d: disk 활동량
     -n 단위시간 횟수: 단위시간마다 횟수만큼 반복하여 data를 읽어옴.
+```
+
+CH14(Administering Networking)
+---------------------------------
+이번 장에서는 Linux의 네트워크 구성과 관리에 대하여 다룬다.  
+
+```ip a``` 명령어로 network interface 정보를 알 수 있다.  
+
+![image](https://user-images.githubusercontent.com/72643027/109410349-3e9ad580-79dd-11eb-8f0f-0984135ce4cb.png){: width="50%" height="50%"}
+
+이와 같이 출력되는 화면에서 ```lo```는 loopback interface로 local에서 local으로 연결할 때 network 명령을 실행하는 interface이다.
+
+```wlo1```은 wireless network interface로 외부와의 연결에 사용된다.
+
+이와 같은 정보는 ```ifconfig``` 명령으로도 확인할 수 있다. 추가적으로 RX(수신 패킷), TX(송신 패킷), 유실된 패킷 정보를 포함한다.
+
+```ping``` : 원격 IP와의 연결 확인. ( ex : ```ping www.google.com```)
+
+```route``` : Route 정보 확인 가능.   
+![image](https://user-images.githubusercontent.com/72643027/109410502-8ff79480-79de-11eb-96ab-6a38f7acaf31.png){: width="50%" height="50%"}
+
+#### network setting
+- CentOS : ```/etc/sysconfig/network-scripts``` 하위에 존재  
+    network 설정 변경 후 ```systemctl restart network```
+- Ubuntu : ```/etc/network/iinterfaces``` 하위에 존재   
+    network 설정 변경 후 ```systemctl restart NetworkManager```
+
+network setting을 변경 시에는
+1) ```systemctl stop NetworkManager```
+2) ```systemctl disable NetworkManager```
+3) ```vi /etc/network/interfaces``` 로 설정파일 수정
+4) ```systemctl restart networking```
+5) ```systemctl enable networking```
+
+이와 같은 순서로 설정해준다.
+
+이외의 network 관련 파일들
+- ```/etc/sysconfig/network``` : RHEL에만 존재. Gateway 설정할 때 사용
+- ```/etc/hostname``` : 호스트명 설정파일
+- ```/etc/hosts``` : DNS없이 hostname을 IP주소로 mapping하기 위한 파일
+- ```/etc/resolv.conf``` : DNS서버와 검색 Domain이 저장되있는 파일. (NetworkManager를 반드시 끄고 편집해야 한다.)
+
+#### network bonding, bonding mode
+Bonding - NIC(Network Interface Card)를 여러 개 본딩하여(논리적으로 묶음) NIC 개수만큼 대역폭을 확장하는 기술.
+
+- mode 0 : Round-robin  
+    첫 번째 가능한 slave부터 마지막까지 순차적으로 전송. load balancing과 failover를 제공한다.
+
+- mode 1 : Active-backup
+    bond에서 하나의 slave만 활성화된다. 다른 slave는 standby 상태로 대기하다 활성중인 slave가 fail된 경우 standby slave가 활성화됨.
+
+- mode 2 : balance-xor(load balancing + failover)  
+    Round-robin과 비슷하지만 xor연산을 이용하여 목적지 Mac과 근원지 Mac을 이용하여 분배한다.
+
+Fault tolerance (Active-backup) 모드의 경우 하나의 slave만 활성화 되고 다른 slave들은 대기상태에 있다가 활성중인 slave가 fail되면 그 때 활성화된다.   
+이러한 방식은 평상시 load balancing (부하분산)을 제공하지 않으며 많은 data를 다루는 기업형 서버에는 적합하지 않다. 
+
+---
+
+이 외에도 network setting을 이용하면 Linux system을 
+- Router 로 사용
+- DHCP server로 사용
+- DNS server로 사용
+- proxy server로 사용   
+
+가능하다. 
+
+CH15(Starting and Stopping Services)
+---------------------------------
+```ps -ef``` : 현재 실행중인 process list 출력.
+
+#### service 시작 / 중지: systemctl 명령어 이용.  
+
+- ```systemctl start [service name]``` : service 시작  
+- ```systemctl stop [service name]``` : service 중지  
+- ```systemctl restart [service name]``` : service 재시작  
+    ex) ```systemctl restart Network-Manager``` 
+
+- ```systemctl enable [service name]``` : 관련 서비스를 /etc/systemd/system/ 하위에 link file 을 생성  
+    부팅 시 service 를 자동 시작. 
+- ```systemctl disable [service name]``` : 해당 link file을 삭제  
+    부팅 시 service 자동 시작 해제.
+- ```systemctl status [service name]``` : service 상태 확인.
+
+#### Run Level
+
+- **level 0 poweroff.target (halt)** : system 종료를 의미.   
+
+- **level 1 rescue.target (Signle user mode)** : 시스템 복원모드. 기본적으로 관리자 권한을 얻음.  
+주로 filesystem 점검 또는 관리자 암호 변경 시 사용.
+
+- **level 2 multi-user.target (Multiuser mode)** : NFS를 지원하지 않는 다중 사용자 모드.
+
+- **level 3 multi-user.target (Full multiuser mode)** : 일반적인 쉘 기반 Interface 를 가진 다중 사용자 모드. GUI를 지원하지 않는다.
+
+- **level 5 graphical.target (X11)** : level 3 + GUI.
+
+- **level 6 reboot.target (reboot)** : system reboot.
+
+현재 system의 runlevel을 알고 싶다면 ```sudo systemctl get-default```입력.
+
+![image](https://user-images.githubusercontent.com/72643027/109462686-3a3aef00-7aa7-11eb-8a81-159ab48081cd.png){: width="50%" height="50%"}
+
+일반적으로 사용하는 mode는 level5임. runlevel을 level3으로 변경하기 위해서는   
+```sudo systemctl set-default multi-user.target```와 같이 입력 후 system 재부팅.
 
 
