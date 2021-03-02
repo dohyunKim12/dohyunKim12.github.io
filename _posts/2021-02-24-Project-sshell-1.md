@@ -19,7 +19,7 @@ https://github.com/gluesys/sshell
 이번 posting에서는 plack 기반으로 짜여진 기존 앱(showmetheshell)을 분석하고
 우리가 아는 perl의 Mojolicious형태로 바꿔보는 작업을 할 것이다. 
 사실상 인후씨가 기존 앱 구조를 파악하고 나에게 가르쳐준 내용을 바탕으로 
-복습 차원에서 써보는 글이다. **(출처 - InhooLee's Brain)**
+복습 차원에서 써보는 글이다.
 
 먼저 기존 앱의 구조부터 분석을 해 보자.   
 기존 앱은 전체적인 앱 구조를 구성하는데 Perl의 'Plack' library를 이용하였다. Front-end의 library로는 jquery를 이용하였다. 그리고 socket으로 socket.io를 이용하였다.
