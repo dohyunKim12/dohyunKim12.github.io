@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "LinuxBible 3nd week Summary"
+title: "LinuxBible 3rd week Summary"
 summary: CH12~CH15
 author: Dohyun Kim
 date: 2021-02-26 16:25:00 -0400
