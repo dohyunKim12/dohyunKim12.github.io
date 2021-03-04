@@ -115,7 +115,8 @@ zip 파일을 다운받아서 압축 해제 후, 안의 ```coverage.html``` 파�
 
 ![image](https://user-images.githubusercontent.com/72643027/109815136-a87fdd00-7c72-11eb-95a9-0bd67a5123da.png){: width="90%" height="90%"}
 
-![image](https://user-images.githubusercontent.com/72643027/109895864-56bb6f00-7cd3-11eb-9bc6-ccb193c55a34.png)
+![image](https://user-images.githubusercontent.com/72643027/109895864-56bb6f00-7cd3-11eb-9bc6-ccb193c55a34.png){: width="90%" height="90%"}
+
 
 먼저 다음과 같이 표시되는 table에서 각 column 이 의미하는 바가 뭐지 살펴보자.  
 - **stmt** : statement. 단일 code, 단일 구문에 대한 cover.
@@ -125,11 +126,13 @@ zip 파일을 다운받아서 압축 해제 후, 안의 ```coverage.html``` 파�
 
 이 중에서 밑으로 쭉 내리다가 만나는 빨간색 part (아직 test code 작성되지 않은 부분) check 메서드의 cond 부분에 under line이 그어져 있는 부분을 클릭해 보자.
 
-![image](https://user-images.githubusercontent.com/72643027/109896347-1f998d80-7cd4-11eb-9d08-737cbcd1a4c6.png)
+![image](https://user-images.githubusercontent.com/72643027/109896347-1f998d80-7cd4-11eb-9d08-737cbcd1a4c6.png){: width="90%" height="90%"}
+
 
 이런 식으로 화면이 띄워진다. libgms 하위의 Account::Local 의 66 line으로 가보자.
 
-![image](https://user-images.githubusercontent.com/72643027/109897992-ddbe1680-7cd6-11eb-9db3-f26c083ef714.png)
+![image](https://user-images.githubusercontent.com/72643027/109897992-ddbe1680-7cd6-11eb-9db3-f26c083ef714.png){: width="70%" height="70%"}
+
 
 이렇게 분기문이 존재한다. 이 부분을 검증해주는 code가 존재하지 않는다는 뜻이다.
 
@@ -141,7 +144,8 @@ zip 파일을 다운받아서 압축 해제 후, 안의 ```coverage.html``` 파�
 
 Account::Local 의 check 메서드를 검증하는 test code이다. 따라서 subroutine 명으로 ```test_check``` 를 작성한다.
 
-![image](https://user-images.githubusercontent.com/72643027/109897260-ca5e7b80-7cd5-11eb-8283-f000e6dcf88b.png)
+![image](https://user-images.githubusercontent.com/72643027/109897260-ca5e7b80-7cd5-11eb-8283-f000e6dcf88b.png){: width="70%" height="70%"}
+
 
 이제 test_check 메소드만 작성하면 된다.
 
@@ -163,7 +167,8 @@ Account::Local::Subgroup
 User.pm 과 Group.pm 등 확인해보고 싶은 파일들이 존재한다.  
 각각에서 살펴보니 역시 ```passwd_file, group_file, shawdow_file``` 속성들이 무엇인지 정의하고 있다.
 
-![image](https://user-images.githubusercontent.com/72643027/109898538-cc293e80-7cd7-11eb-809e-ad221a4fdc0e.png)
+![image](https://user-images.githubusercontent.com/72643027/109898538-cc293e80-7cd7-11eb-809e-ad221a4fdc0e.png){: width="70%" height="70%"}
+
 
 이제 이 파일들이 무엇인지도 확인하였으니, test code를 작성해 보자.
 
@@ -199,4 +204,88 @@ sub test_check : Tests(no_plan)
     }
 }
 ```
+
+이와 같이 작성한다. 
+
+Class 객체 생성 시 parameter로 속성값들을 전달하여 초기화 시키는 것 처럼,  
+기존의 file을 건드리지 않고, Test file을 별도로 만드는 것을 Mock_up 이라 한다.  
+
+Mock_up 의 방식에는 Class method 를 overriding 하는 방식 등 여러가지가 존재하나,  
+상황에 맞춰 적합한 방식을 택하는 것이 중요하다.  
+(Test code 작성할 때 마다 팀장님꼐 어떠한 방식으로 Mock_up 할 지 조언을 구하자.)
+
+
+**(중요!! 원래는 항상 실패지점부터 시작해야 한다. 지금 작성된 code는 여러 실패를 거치며 모든 경우를 포함한 결과이다.)**
+
+이렇게 test code를 작성했으면, 
+(코드는 몇 줄 안되나 여기까지 생각해내는 것이 쉽지만은 않다.)
+
+![image](https://user-images.githubusercontent.com/72643027/109904140-20382100-7ce0-11eb-8415-17e85c2bbae7.png){: width="70%" height="70%"}
+
+
+다음과 같은 분기문 조건들을 모두 확인한 것이다.  
+이제 test를 돌리고 이 표가 모두 초록색으로 채워지는지 확인해보자.
+
+unit test 실행하는 명령어는 익숙하다시피 
+```MOCK_ETCD=1 prove -lvm -Ilibgms -I../GSM/lib```으로 실행하면 된다.  
+여기에 ```:: --classes Test::Account::Local``` 을 추가하여 해당 test module만 테스트를 진행할 수 있다는 것도 지난시간에 살펴보았다.  
+
+Unit Test 를 돌려본다.
+
+![image](https://user-images.githubusercontent.com/72643027/109904760-0d721c00-7ce1-11eb-93e5-2d51d8fc6c79.png){: width="70%" height="70%"}
+
+
+성공을 확인한다.
+
+Coverage
+---
+Test 결과가 success 인지 failure 인지 와는 별개로, 우리는 해당 condition을 모든 조건에서 확인하는 test code를 작성하였다.
+
+이것을 반영하여 coverage 결과를 살펴보자. 어떻게 해야할까?
+
+앞서 언급했던 .gitlab-ci.yml 파일을 살펴본다.  
+(.gitlab-ci.yml 파일은 실제로 GitLab - CI 에서 동작하는 것들을 단편적으로 수행시킬 수 있도록 해준다.)
+
+unittest 하위에 실행 명령어로 ```MOCK_ETCD=1 TEST_VERBOSE=1 HARNESS_PERL_SWITCHES=-MDevel::Cover prove -lvm -Ilibgms -I${GIRASOLE_ROOT}/lib t/unit.t :: --statistics``` 가 보인다.
+
+참고하여 다음을 입력한다.
+```
+MOCK_ETCD=1 TEST_VERBOSE=1 HARNESS_PERL_SWITCHES=-MDevel::Cover prove -lvm -Ilibgms -I../GSM/lib :: --classes Test::Account::Local
+```
+(실행되기 위해선 ```cpanm MDevel::Cover```를 설치해야 함.)
+
+이후 test 결과가 나오면 (성공, 실패 여부는 관계없음.)   
+```cover``` 명령어를 입력한다. 
+
+![image](https://user-images.githubusercontent.com/72643027/109913819-ff78c700-7cf1-11eb-94f3-d341090b5b57.png){: width="70%" height="70%"}
+
+
+이와 같이 맨 밑에 HTML이 다음 경로에 저장되었다는 출력 메세지가 나온다.  
+경로에 들어가서 coverage.html 파일을 확인해보자.
+
+![image](https://user-images.githubusercontent.com/72643027/109913939-3f3fae80-7cf2-11eb-9169-9e0f1f3585c6.png){: width="70%" height="70%"}
+
+
+Account::Local의 check method - coverage 표가 이렇게 채워졌음을 확인할 수 있다.
+
+![image](https://user-images.githubusercontent.com/72643027/109914122-a2c9dc00-7cf2-11eb-9429-f2bd38d9e486.png){: width="70%" height="70%"}
+
+
+또한, 이번 경우엔, 분기문에 대한 test code를 작성하므로써 이렇게 다른 column  
+(statement, branch, subroutine)들도 test 했다는 결과를 얻게 되었다. 
+
+이렇게 coverage 까지 확인한 후, 마지막으로  
+GitLab remote repository에 commit 과 Merge request 를 올리면 된다.  
+
+Commit & Merge Request
+---
+앞으로 작성할 unit test code들은   
+fork를 떠 온 나의 개인 project에서 branch 하나를 생성, 그 branch에서 test code 작성 후, remote (ac2) master에 merge request 를 올리는 방식으로 작업하게 될 것이다.
+
+Local에서 ```git commit -s -m "Commit message"``` 를 이용하여 커밋  
+(좀 더 상세히 작성할 필요가 있을 시에는 ```commit -s``` 만 입력하여 vi 창으로 넘어가 메세지를 detail하게 적도록 하자)  
+후, ```git push origin unit-test``` 로 나의 remote branch 에 push 한다.  
+
+이후 GitLab 에 접속하여 Merge Request - New merge request 를 클릭하여   
+Source branch와 Target branch를 적절히 선택해 준 후, Merge Request를 요청하면 된다.   
 
