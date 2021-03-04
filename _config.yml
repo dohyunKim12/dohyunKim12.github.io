@@ -70,6 +70,12 @@ author_project_details:
                 project_description: Analyze your emotion by written diary.
                 project_url: https://github.com/yunakim2/mobile_project
                 visibility: true
+              - project_thumbnail: GMS.png
+                project_title: GMS
+                project_description: Gluesys Enterprise Storage Solution
+                project_url: http://anystor.co.kr/scaleout/overview/
+                visibility: true
+
 
 # social links
 twitter_username: null
