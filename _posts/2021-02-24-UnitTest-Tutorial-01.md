@@ -414,6 +414,7 @@ UnitTest
 ![image](https://user-images.githubusercontent.com/72643027/109113169-26c61600-777f-11eb-847c-9921d24ca5f9.png){: width="70%" height="70%"}
 
 ```MOCK_ETCD=1 prove -lvm -Ilibgms -I../GSM/lib :: --class Test::Bike``` 다음과 같이 입력하면 Test::Bike에 해당하는 클래스만 test 가 가능하다.
+
 ![image](https://user-images.githubusercontent.com/72643027/109113316-6856c100-777f-11eb-8e37-42de1a014206.png){: width="70%" height="70%"}
 
 이렇게 작성한 API에 대해 Test가 통과했다.
