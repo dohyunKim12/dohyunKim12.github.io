@@ -3,7 +3,7 @@ layout: post
 title: "Perl Mojolicious Tutorial(1)"
 summary: How to use Mojolicious web framework
 author: Dohyun Kim
-date: 2021-02-24 21:30:00 -0400
+date: 2021-02-05 21:30:00 -0400
 category: DesignPattern
 thumbnail: /assets/img/posts/mojoliciousThumb.png
 comments: true
