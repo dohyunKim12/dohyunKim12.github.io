@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "고주임님 배 Network 스터디(1)"
+title: "Network 스터디(1)"
 summary: Linux(CentOS7) 에서 network setting
 author: Dohyun Kim
-date: 2021-02-24 21:30:00 -0400
+date: 2021-02-03 21:30:00 -0400
 category: Network
 thumbnail: /assets/img/posts/network.png
 comments: true
