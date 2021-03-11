@@ -29,3 +29,18 @@ remote repository로 push 후 Gitlab의 CI/CD를 확인 해 보니 failure가 �
 ![image](https://user-images.githubusercontent.com/72643027/110745103-20a35f80-827e-11eb-8598-9b7ccb20e6bd.png){: width="90%" height="90%"}
 
 이후 정상적으로 CI/CD pipeline 통과.
+
+* 참고사항 : 보통 CentOS-Base 에 기본적인 건 들어가 있음.  
+```.gitlab-ci.yml``` 파일 상단에 before_script 부분에 
+```
+[base]
+name=CentOS-$releasever - Base
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra
+baseurl=http://mirror.kakao.com/centos/$releasever/os/$basearch/
+gpgcheck=0
+enabled=0
+```
+를 추가하면 CI 돌아가는 건 확인가능!  
+
+다만 해당 rpm이 들어가는게 fix되었는데,  
+**abs.gluesys.com**에 없으면 직접 추가해야되서, **merge 된 이후 해당 list를 공유해야 한다!!**
