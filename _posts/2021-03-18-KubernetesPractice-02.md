@@ -201,7 +201,7 @@ flask
 
 
 - Docker Image build  
-    ```docker build --tag time:1.0 .``` (--tag option으로 이미지명 뒤에 : 을 붙여 version을 명시할 수 있음.)
+    ```docker build --tag time:1.0 .``` (--tag option으로 이미지명 뒤에 : 을 붙여 version을 명시할 수 있음.) (명시하지 않으면 자동으로 latest로 설정됨.)
 
 ![image](https://user-images.githubusercontent.com/72643027/112431751-43a43800-8d83-11eb-9b13-cb912ade0b57.png){: width="60%" height="60%"}
 
