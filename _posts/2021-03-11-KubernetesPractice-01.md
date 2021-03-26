@@ -142,6 +142,8 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
 
 ![image](https://user-images.githubusercontent.com/72643027/111987508-a5319000-8b52-11eb-96f7-36c1b25da02d.png){: width="70%" height="70%"}
 
+(calico 관련 오류 - 방화벽 문제이므로 ```systemctl stop firewalld```로 방화벽 아예 꺼보자.)
+
 여기까지 성공하였다면, Master node 구성 완료.  
 이제 Master node 에 Worker node를 붙여 보자.
 
