@@ -99,6 +99,7 @@ spec:
     ```kubectl get pod -o wide | grep time``` ( -o wide option은 Pod에 대한 전체적인 정보를 표시해줌. IP주소 포함.)
 - Pod 동작 확인  
     ```curl http://pod_ip:8888```
+
     ![image](https://user-images.githubusercontent.com/72643027/112599183-f099b600-8e52-11eb-8509-eb3f71db680e.png){: width="50%" height="50%"}
 
 
@@ -166,7 +167,7 @@ spec:
 - Kubernetes Service 확인  
     ```kubectl get service```
 - Service 요청 확인  
-    ```curl http://ClusterIP:port
+    ```curl http://ClusterIP:port```
 
 ![image](https://user-images.githubusercontent.com/72643027/112601310-a6fe9a80-8e55-11eb-9b42-23c6eb7f52a0.png){: width="50%" height="50%"}
 
