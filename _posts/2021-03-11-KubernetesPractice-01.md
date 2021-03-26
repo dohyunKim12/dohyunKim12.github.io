@@ -64,7 +64,7 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
     ```yum update -y```
     2. Docker 설치 & enable & check  
     ```yum install -y docker```  
-    ```systemct enable docker && systemctl start docker```  
+    ```systemctl enable docker && systemctl start docker```  
     ```docker version```
 - Kubernetes Yum Repository 구성  
     ```
@@ -75,13 +75,13 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
     >enabled=1
     >gpgcheck=1
     >repo_gpgcheck=1
-    >gpgkey=https://packages.cloud.goolge.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    >gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
     >exclude=kube*
     >EOF'
     ```
 - 통신 문제를 방지하기 위한 SE Linux 모드 변경  
     ```
-    sentenforce 0
+    setenforce 0
     sed -i 's/^SELINUX=enforcing$/SELINUX=premissive/' /etc/selinux/config
     ```
 - Kubernetes 설치 & Kubelet 활성화
@@ -112,14 +112,14 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
     ```kubeadm config images pull```
 
 - Kubernets Cluster 설정(Master Only)  
-    ```kubeadm init --pod-network-cidr = 10.244.0.0/16```
+    ```kubeadm init --pod-network-cidr=10.244.0.0/16```
 - Swap error처리
     ```swapoff -a```, 또는  ```vi /etc/fstab```에서 swap 설정 주석처리 -> 영구적으로 끔.
 
 - Kubernetes Cluster 접근 설정(Master Only)
     ```
     mkdir -p $HOME/.kube
-    cp -i/etc/kubernetes/admin.conf $HOME/.kube/config
+    cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     chown $(id -u):$(id -g) $HOME/.kube/config
     ```
 - Kube flannel 적용(Master Only)
@@ -130,8 +130,9 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
     ```
 - CNI(Container Network Interface) 설치(Master Only)
     ```
-    curl https://projectcallico.org/archive/v3.8/manifests/claico.yaml -O
+    curl https://docs.projectcalico.org/archive/v3.8/manifests/calico.yaml -O
     kubectl apply -f calico.yaml
+    kubectl apply -f kube-flannel.yml
     ```
 - Kubernetes 주요 POD 동작 확인 & master node 연결 확인(Master Only)
     ```
@@ -145,13 +146,13 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
 이제 Master node 에 Worker node를 붙여 보자.
 
 - Master node에 추가(Worker Only)  
-    ```kubeadm join [master-ip]:6443 --token [token] --discovery-tocken-ca-cert-hash sha256:[hash]```
+    ```kubeadm join [master-ip]:6443 --token [token] --discovery-token-ca-cert-hash sha256:[hash]```
 
 - Token & Hash값 확인(Master node에서 확인)
     ```
     kubeadm token list
-    openssl x509 -pubekey -in /etc/kuberneres/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
-    openssl dgst -sha256 -hex | sed 's/^.*//'
+    openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | \
+    openssl dgst -sha256 -hex | sed 's/^.* //'
     ```
 - Token list에 값이 없을 경우 Token 생성  
     ```kubeadm token create```
