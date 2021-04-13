@@ -29,11 +29,11 @@ Prometheus 는 OpenSource 기반 Monitoring system으로, Kubernetes node들의 
 
 PromQL Query Language를 사용한다.
 
-![image](https://user-images.githubusercontent.com/72643027/114351152-29e95a00-9ba5-11eb-97c2-3155128dc89e.png)
+![image](https://user-images.githubusercontent.com/72643027/114351152-29e95a00-9ba5-11eb-97c2-3155128dc89e.png){: width="70%" height="70%"}
 
 설치 전 먼저 ```kubectl get nodes```로 쿠버네티스 클러스터 상태가 정상인지 확인한다.
 
-![image](https://user-images.githubusercontent.com/72643027/114351359-746ad680-9ba5-11eb-956e-f27cffe04658.png)
+![image](https://user-images.githubusercontent.com/72643027/114351359-746ad680-9ba5-11eb-956e-f27cffe04658.png){: width="70%" height="70%"}
 
 <참고> ```kubectl get nodes```에서 ready 안 뜰 경우, 확인하는 법.  
 1. docker, kubelet restart.
@@ -107,11 +107,11 @@ curl http://[prometheus-server ip]/api/v1/query -d query="node_memory_MemTotal_b
 
 직접 Prometheus Query 를 날려보기 위해, prometheus-server의 IP를 확인해 보자.
 
-![image](https://user-images.githubusercontent.com/72643027/114356831-007ffc80-9bac-11eb-8c39-26c631f33d5f.png)
+![image](https://user-images.githubusercontent.com/72643027/114356831-007ffc80-9bac-11eb-8c39-26c631f33d5f.png){: width="70%" height="70%"}
 
 이렇게 pod와 service의 IP를 확인할 수 있는데, 이 중 prometheus-server의 service Cluster-IP인 ```10.98.162.91```을 사용한다. (이유는 pod의 IP주소는 유동적이고 service는 그러한 유동적인 pod의 IP를 찾을 수 있는 anchor역할을 하기 때문.)
 
-![image](https://user-images.githubusercontent.com/72643027/114358126-894b6800-9bad-11eb-8979-abe84a314d3e.png)
+![image](https://user-images.githubusercontent.com/72643027/114358126-894b6800-9bad-11eb-8979-abe84a314d3e.png){: width="70%" height="70%"}
 
 이처럼 확인이 가능하다.
 
@@ -129,14 +129,14 @@ curl http://[prometheus-server ip]/api/v1/query -d query="node_memory_MemTotal_b
 
 - charts/stable/grafana/values.yaml 파일 수정
 
-![image](https://user-images.githubusercontent.com/72643027/114358817-505fc300-9bae-11eb-94f8-bcf0812418b6.png)
+![image](https://user-images.githubusercontent.com/72643027/114358817-505fc300-9bae-11eb-94f8-bcf0812418b6.png){: width="70%" height="70%"}
 
 - Grafana 설치
 ```helm install grafana stable/grafana -f charts/stable/grafana/values.yaml```
 
-![image](https://user-images.githubusercontent.com/72643027/114359141-a0d72080-9bae-11eb-9b4c-279043cbe409.png)
+![image](https://user-images.githubusercontent.com/72643027/114359141-a0d72080-9bae-11eb-9b4c-279043cbe409.png){: width="70%" height="70%"}
 
-![image](https://user-images.githubusercontent.com/72643027/114359187-aaf91f00-9bae-11eb-84f0-8c681cc74ea8.png)
+![image](https://user-images.githubusercontent.com/72643027/114359187-aaf91f00-9bae-11eb-84f0-8c681cc74ea8.png){: width="70%" height="70%"}
 
 - Grafana service 외부 IP 할당
 ```
@@ -146,7 +146,7 @@ kubectl edit svc/grafana
 clusterIP 하위에 externalIPs 추가 후 IP 할당. (자신의 node IP주소 기입.)  
 port 부분에 원하는 port 설정.
 
-![image](https://user-images.githubusercontent.com/72643027/114359392-dda31780-9bae-11eb-84ea-c07d8b484463.png)
+![image](https://user-images.githubusercontent.com/72643027/114359392-dda31780-9bae-11eb-84ea-c07d8b484463.png){: width="70%" height="70%"}
 
 - Grafana 접속
 
@@ -159,7 +159,7 @@ Grafana dashboard에서 ```Configuration - Data Sources - Add data source```
 
 Prometheus 선택, URL에 Prometheus server IP 입력.
 
-![image](https://user-images.githubusercontent.com/72643027/114360284-cf093000-9baf-11eb-9284-55d7b27dd889.png)
+![image](https://user-images.githubusercontent.com/72643027/114360284-cf093000-9baf-11eb-9284-55d7b27dd889.png){: width="70%" height="70%"}
 
 Save & Test 진행.
 
@@ -171,5 +171,5 @@ https://grafana.com/grafana/dashboards 에서 원하는 dashboard 선택 후, im
 
 Dashboard 선택 후 확인.
 
-![image](https://user-images.githubusercontent.com/72643027/114360746-55257680-9bb0-11eb-852a-54eb858664be.png)
+![image](https://user-images.githubusercontent.com/72643027/114360746-55257680-9bb0-11eb-852a-54eb858664be.png){: width="70%" height="70%"}
 
