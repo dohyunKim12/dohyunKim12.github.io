@@ -41,6 +41,7 @@ PromQL Query Language를 사용한다.
 3. master, worker node로 설정한 node의 호스트명 확인. JOIN 당시의 호스트명을 전달해서 인식하기 때문에 node의 호스트명이 바뀌면 인식하지 못함.
 4. ```calico```문제 => 방화벽 off 로 해결.
 5. pod 들이 ```pending```되는 이유는, 배포할 node가 없다고 판단했기 때문.(master node는 애초에 배포할 node라고 가정하지 않음.) => ```kubectl get nodes```로 worker node를 ready 상태로 만드는 것이 우선.  
+
 <br/>
 
 - Helm 설치.
