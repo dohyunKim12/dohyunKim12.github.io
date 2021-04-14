@@ -35,7 +35,7 @@ PromQL Query Language를 사용한다.
 
 ![image](https://user-images.githubusercontent.com/72643027/114351359-746ad680-9ba5-11eb-956e-f27cffe04658.png){: width="70%" height="70%"}
 
-<참고> ```kubectl get nodes```에서 ready 안 뜰 경우, 확인하는 법.  
+!참고 ```kubectl get nodes```에서 ready 안 뜰 경우, 확인하는 법.  
 1. docker, kubelet restart.
 2. 1 해도 안될 경우 config 파일 다시 복사떠와서 설정.(1주차 내용에 존재.)
 3. master, worker node로 설정한 node의 호스트명 확인. JOIN 당시의 호스트명을 전달해서 인식하기 때문에 node의 호스트명이 바뀌면 인식하지 못함.
@@ -47,13 +47,14 @@ PromQL Query Language를 사용한다.
 - Helm 설치.
 
 Helm 차트는 복잡한 Kubernetes app들을 편리하게 정의하여 설치하거나 upgrade가 가능하게 해 주는 tool이다. 한마디로 Kubernetes Package managing tool.
+
 ```
 curl -fsSL -o helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 chmod 777 helm.sh
 ./helm.sh
 helm repo add stable https://charts.helm.sh/stable
 helm repo update
-```  
+```
 
 - Helm Chart git clone  
 ```
