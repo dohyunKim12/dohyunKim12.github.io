@@ -8,7 +8,7 @@ category: Kubernetes
 thumbnail: /assets/img/posts/Kubernetes.png
 comments: true
 ---
-#### 기존 Hypervisor 가상화 vs Docker & Container 가상화
+##### 기존 Hypervisor 가상화 vs Docker & Container 가상화
 기존 방식은 HostOS 위에 GuestOS를 생성하고 그 위에서 돌기 때문에 너무 무거움. 반면 Container를 사용하면
 단일 Host OS에서 여러개의 process가 각각 독립된 공간으로 인식하고 돌기 때문에 가볍고 빠르다.
 
@@ -20,18 +20,18 @@ comments: true
 **cgroup** - process group의 cpu, memory 등의 system resource를 격리.  
 process가 사용하는 시스템 자원용량 제한
 
-#### Container 의 장점
+##### Container 의 장점
 - application의 빠른 배포. (portability)(Container 이식이 편함.)
 - 하나의 OS에서 동작하므로 resource들을 효율적 사용.
 - MSA 구조로 SW를 짜기 쉬움. (빠른 build와 빠른 배포가 가능하므로.)
     --> 마찬가지로, 유지보수가 쉬움.
 
-#### Container 의 단점
+##### Container 의 단점
 - 하나의 동일 Kernel을 공유하기 때문에 보안에 취약함.(하나의 container를 통해 다른 container로의 침범이 가능.)
 - HostOS에 종속적이다. (Linux용 컨테이너는 Linux위에서만 돌릴 수 있음)
 
 
-### Container 기초개념
+##### Container 기초개념
 Container - 돌고자 하는 program이 필요한 library, setting 해야 하는 configuration 등을 한꺼번에 표준화된 방법으로 packaging 화 해둔 것.
 
 - Standard Packaging  
@@ -47,7 +47,7 @@ Container - 돌고자 하는 program이 필요한 library, setting 해야 하는
     걱정할 거리. 가 없음.(Infra관리에 대한 걱정이 없음)
 
 
-### Cloud Native
+##### Cloud Native
 - Self-Service  
     모든 bin/lib들이 packaging화 되어 있어서 부수적으로 다른 것 없이 돌아갈 수 있음.
 
