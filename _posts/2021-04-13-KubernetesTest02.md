@@ -12,6 +12,7 @@ comments: true
 기존 방식은 HostOS 위에 GuestOS를 생성하고 그 위에서 돌기 때문에 너무 무거움. 반면 Container를 사용하면
 단일 Host OS에서 여러개의 process가 각각 독립된 공간으로 인식하고 돌기 때문에 가볍고 빠르다.
 
+
 격리 기술 -> namespace 와 Cgroup
 
 **namespace** - 사용되는 다양한 변수 등의 name들을 분리해서 각 group이 독자적으로 사용하게 함. (A group B group 이 서로 분리되게 하여 같은 이름(process 1, process 2...)을 사용하더라도 논리적으로 분리돼서 괜찮음.)
