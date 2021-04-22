@@ -137,20 +137,20 @@ spec:
 
 ### Kubernetes yaml file 작성 & 배포 (Service)
 - kubernetes pod yaml 파일 생성 (test_service.yaml)  
-```
-apiVersion: v1
-kind: Service
-metadata:
-  name: time
-spec:
-  selector:
-    app: time
-  ports:
-  - name: http
-    protocol: TCP
-    port: 8888
-    targetPort: 8888
-```
+    ```
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: time
+    spec:
+      selector:
+        app: time
+      ports:
+      - name: http
+        protocol: TCP
+        port: 8888
+        targetPort: 8888
+    ```
 
 - Service 생성  
     ```kubectl apply -f test_service.yaml```
