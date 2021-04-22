@@ -75,7 +75,7 @@ comments: true
 ---
 
 ### Kubernetes yaml file 작성 & 배포 (POD)
-- kubernetes pod yaml 파일 생성 (test_pod.yaml)
+- kubernetes pod yaml 파일 생성 (test_pod.yaml)  
 ```
 apiVersion: v1
 kind: Pod
@@ -111,17 +111,7 @@ spec:
 
 ### Kubernetes yaml file 작성 & 배포 (Deployment)
 - kubernetes pod yaml 파일 생성 (test_deployment.yaml)
-```
-apiVersion: v1
-kind: Deployment
-metadata:
-  name: time
-  labels:
-    app: time
-  namespace: default
-spec:
-  selector:
-    matchLabels:
+``` apiVersion: v1 kind: Deployment metadata: name: time labels: app: time namespace: default spec: selector: matchLabels:
       app: time
   replicas: 2   # 포드 생성 수. (과부하시 분산을 위한 목적)
   template:
@@ -145,7 +135,6 @@ spec:
 
 ![image](https://user-images.githubusercontent.com/72643027/112600741-eaa4d480-8e54-11eb-8bd8-5d7da1fb172c.png){: width="50%" height="50%"}
 
-
 ### Kubernetes yaml file 작성 & 배포 (Service)
 - kubernetes pod yaml 파일 생성 (test_service.yaml)  
 ```
@@ -162,6 +151,7 @@ spec:
     port: 8888
     targetPort: 8888
 ```
+
 - Service 생성  
     ```kubectl apply -f test_service.yaml```
 - Kubernetes Service 확인  
