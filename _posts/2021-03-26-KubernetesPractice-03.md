@@ -76,22 +76,22 @@ comments: true
 
 ### Kubernetes yaml file 작성 & 배포 (POD)
 - kubernetes pod yaml 파일 생성 (test_pod.yaml)  
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: time
-  labels:
-    app: time
-  namespace: default
-spec:
-  containers:
-  - name: time
-    image: dohyunkim12/time:1.0
-    imagePullPolicy: IfNotPresent
-    ports:
-    - containerPort: 8888
-```
+    ```
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: time
+      labels:
+        app: time
+      namespace: default
+    spec:
+      containers:
+      - name: time
+        image: dohyunkim12/time:1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8888
+    ```
 
 - Pod 생성  
     ```kubectl apply -f test_pod.yaml```
@@ -111,21 +111,31 @@ spec:
 
 ### Kubernetes yaml file 작성 & 배포 (Deployment)
 - kubernetes pod yaml 파일 생성 (test_deployment.yaml)
-``` apiVersion: v1 kind: Deployment metadata: name: time labels: app: time namespace: default spec: selector: matchLabels:
-      app: time
-  replicas: 2   # 포드 생성 수. (과부하시 분산을 위한 목적)
-  template:
-    metadata:
-      labels:
-        app: time
-    spec:
-      containers:
-      - name: time
-        image: dohyunkim12/time:1.0
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 8888
-```
+    ``` 
+    apiVersion: v1 
+    kind: Deployment 
+    metadata: 
+      name: time 
+      labels: 
+        app: time 
+    namespace: default 
+    spec: 
+      selector: 
+        matchLabels:
+          app: time
+      replicas: 2   # 포드 생성 수. (과부하시 분산을 위한 목적)
+      template:
+        metadata:
+          labels:
+            app: time
+        spec:
+          containers:
+          - name: time
+            image: dohyunkim12/time:1.0
+            imagePullPolicy: IfNotPresent
+            ports:
+            - containerPort: 8888
+    ```
 - Deployment 생성  
     ```kubectl apply -f test_deployment.yaml```
 - Deployment 확인  
