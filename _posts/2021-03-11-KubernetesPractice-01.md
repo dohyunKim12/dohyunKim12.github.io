@@ -111,10 +111,11 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
 - Kubernetes 초기화에 사용될 이미지 pull  
     ```kubeadm config images pull```
 
+- Swap error처리
+    ```swapoff -a```, 또한  ```vi /etc/fstab```에서 swap 설정 주석처리 -> 영구적으로 끔.
+
 - Kubernets Cluster 설정(Master Only)  
     ```kubeadm init --pod-network-cidr=10.244.0.0/16```
-- Swap error처리
-    ```swapoff -a```, 또는  ```vi /etc/fstab```에서 swap 설정 주석처리 -> 영구적으로 끔.
 
 - Kubernetes Cluster 접근 설정(Master Only)
     ```
