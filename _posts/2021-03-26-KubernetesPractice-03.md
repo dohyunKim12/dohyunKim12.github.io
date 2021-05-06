@@ -118,7 +118,7 @@ comments: true
       name: time 
       labels: 
         app: time 
-    namespace: default 
+      namespace: default 
     spec: 
       selector: 
         matchLabels:
