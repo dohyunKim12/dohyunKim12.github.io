@@ -169,9 +169,9 @@ if __name__ == "__main__":
 
 Dockerfile 
 ```
-FROM ubuntu:18.04
+FROM centos:7
 
-RUN apt-get update -y && apt-get install -y python3 \
+RUN yum update -y && yum install -y python3 \
 python3-pip
 
 COPY ./requirement.txt /app/requirement.txt
