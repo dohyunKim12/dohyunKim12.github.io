@@ -32,8 +32,8 @@ comments: true
 
     ![image](https://user-images.githubusercontent.com/72643027/112596257-eaa1d600-8e4e-11eb-83a6-50e985351678.png){: width="80%" height="80%"}
 
-- PULL: (pull 은 반대로 time 이미지가 아직 존재하지 않는 master node에서 진행.)
-    + docker image pull
+- PULL: (pull 은 반대로 time 이미지가 아직 존재하지 않는 master node에서 진행.)  
+    + docker image pull  
         ```docker pull [DockerHub ID]/[repository명]:[tag명]```
 
 성공적으로 time (1.0 ver) image 가 push 되고 pull 받아졌다.
