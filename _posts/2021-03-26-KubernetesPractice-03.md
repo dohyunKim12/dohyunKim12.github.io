@@ -25,7 +25,7 @@ comments: true
     + docker image tag 걸기  
         ```docker tag [이미지명] [DockerHub ID]/[repository명]:[tag명]```  
         repository명은 DockerHub에 생성할 repository 이름을 작성해주면 됨.
-    + docker image push
+    + docker image push  
         ```docker push [DockerHub ID]/[repository명]:[tag명]```
 
     이렇게 해주면 DockerHub에 실제로 repository가 생성되고, image가 올라간다. (시간 조금 소요)
