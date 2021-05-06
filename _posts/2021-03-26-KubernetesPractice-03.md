@@ -112,7 +112,7 @@ comments: true
 ### Kubernetes yaml file 작성 & 배포 (Deployment)
 - kubernetes pod yaml 파일 생성 (test_deployment.yaml)
     ``` 
-    apiVersion: v1 
+    apiVersion: apps/v1 
     kind: Deployment 
     metadata: 
       name: time 
