@@ -76,7 +76,7 @@ helm install prometheus stable/prometheus -f charts/stable/prometheus/values.yam
 
 ```kubectl get pods```로 설치 확인.
 
-![image](https://user-images.githubusercontent.com/72643027/114353326-dfb5a800-9ba7-11eb-8c5a-b2c2b4c86a40.png)
+![image](https://user-images.githubusercontent.com/72643027/114353326-dfb5a800-9ba7-11eb-8c5a-b2c2b4c86a40.png){: width="70%" height="70%"}
 
 - jq 설치. (Query response를 보기 편하게 해 주는 tool)
 ```
