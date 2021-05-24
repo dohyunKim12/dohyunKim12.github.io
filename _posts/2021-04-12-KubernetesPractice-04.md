@@ -62,12 +62,12 @@ yum install -y git
 git clone https://github.com/helm/charts.git
 ```
 
-- Prometheus values 파일 수정. (Persistant Volume 사용하지 않고 설치)
+- Prometheus values 파일 수정. (Persistent Volume 사용하지 않고 설치)
 ```
 cd charts/stable/prometheus/
 vi values.yaml
 ```
-values.yaml 파일에서 persistantVolume: 하위의 enabled: 를 ```false```로 설정. (3군데 수정필요)
+values.yaml 파일에서 persistentVolume: 하위의 enabled: 를 ```false```로 설정. (3군데 수정필요)
 
 - Prometheus 설치
 ```
