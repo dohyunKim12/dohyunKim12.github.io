@@ -155,15 +155,15 @@ import datetime
 app = Flask(__name__)
 
 def get_cur_time():
-        return str(datetime.datetime.now()) + "\n"
+    return str(datetime.datetime.now()) + "\n"
 
-@app.route("/",methods=["POST","GET"])
+@app.route("/",methods=["POST", "GET"])
 def main():
-        if request:
-                return get_cur_time()
+    if request:
+        return get_cur_time()
 
 if __name__ == "__main__":
-        app.run(host='0.0.0.0',port=8888,threaded=True)
+    app.run(host='0.0.0.0', port=8888, threaded=True)
 ```
 <br/>
 
