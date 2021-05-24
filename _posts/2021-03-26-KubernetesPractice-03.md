@@ -75,6 +75,10 @@ comments: true
 ---
 
 ### Kubernetes yaml file 작성 & 배포 (POD)
+
+쉬운 yaml file editing 을 위한 ```.vimrc``` 설정  
+```set expandtab autoindent```
+
 - kubernetes pod yaml 파일 생성 (test_pod.yaml)  
     ```
     apiVersion: v1
