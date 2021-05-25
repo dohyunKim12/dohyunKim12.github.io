@@ -103,7 +103,7 @@ yum install jq
     Range Query - end point: /api/v1/query_range
 - Test  
 ```
-curl http://[prometheus-server ip]/api/v1/query -d query="node_cpu_seconds_total"```
+curl http://[prometheus-server ip]/api/v1/query -d query="node_cpu_seconds_total"
 curl http://[prometheus-server ip]/api/v1/query -d query="node_memory_MemTotal_bytes" | jq
 ```
 
