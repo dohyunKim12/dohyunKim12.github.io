@@ -107,6 +107,7 @@ curl http://[prometheus-server ip]/api/v1/query -d query="node_cpu_seconds_total
 curl http://[prometheus-server ip]/api/v1/query -d query="node_memory_MemTotal_bytes" | jq
 ```
 
+(curl 명령어로 작동이 안된다면 방화벽 문제일 가능성이 큼. 방화벽 off 해버리자.)   
 직접 Prometheus Query 를 날려보기 위해, prometheus-server의 IP를 확인해 보자.
 
 ![image](https://user-images.githubusercontent.com/72643027/114356831-007ffc80-9bac-11eb-8c39-26c631f33d5f.png){: width="70%" height="70%"}
