@@ -74,7 +74,9 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
     Add Docker repository  
     ```
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
     sudo apt-key fingerprint 0EBFCD88
+
     sudo add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) \
@@ -93,10 +95,13 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
 - Kubernetes Apt Repository 구성  
     ```
     sudo apt-get install -y apt-transport-https curl
+
     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-    cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+    sudo bash -c 'cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
     deb https://apt.kubernetes.io/ kubernetes-xenial main
-    EOF
+    EOF'
+
     sudo apt-get update
     ```
 
