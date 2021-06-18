@@ -86,7 +86,7 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
     ```
 - Kubernetes 설치 & Kubelet 활성화
     ```
-    yum install -y kubeadm-1.15.5-0.x86_64 kubectl-1.1.5.5-0.x86_64 kubelet-1.15.5-0.x86_64 --disableexcludes=kubernetes
+    yum install -y kubeadm-1.15.5-0.x86_64 kubectl-1.15.5-0.x86_64 kubelet-1.15.5-0.x86_64 --disableexcludes=kubernetes
     systemctl enable kubelet && systemctl start kubelet
     ```
 - IPTables(방화벽 설정하는 도구) 설정 파일 작성
