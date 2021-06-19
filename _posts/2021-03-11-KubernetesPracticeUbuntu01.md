@@ -109,9 +109,9 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
     ```
     setenforce 0
     ```
-- Kubernetes 설치 & Kubelet 활성화
+- Kubernetes 설치 & Kubelet 활성화 (k8s는 안정된 version인 1.15.5 로 설치를 권장)
     ```
-    sudo apt-get install -y kubelet kubeadm kubectl
+    sudo apt-get install -y kubelet=1.15.5-00 kubeadm=1.15.5-00 kubectl=1.15.5-00
     systemctl enable kubelet && systemctl start kubelet
     ```
 
@@ -158,7 +158,7 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
     ```
     wget https://raw.githubusercontent.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml
     ip a # Network Interface 명 확인
-    vi Kube-flannel.yml # command에 --iface=network-interface명 추가.
+    vi ube-flannel.yml # command에 --iface=network-interface명 추가.
     ```
 - CNI(Container Network Interface) 설치(Master Only)
     ```
