@@ -164,7 +164,8 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
 
 ![image](https://user-images.githubusercontent.com/72643027/111988091-5f28fc00-8b53-11eb-9110-d0a7ab69684f.png){: width="70%" height="70%"}
 
-
+참고. Kubernetes master IP가 바뀌었을때  
+```git clone https://github.com/dohyunKim12/kubernetes.git```
 
 
 

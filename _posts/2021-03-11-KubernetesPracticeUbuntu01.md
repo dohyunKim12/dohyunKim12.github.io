@@ -199,7 +199,7 @@ ex) Kubernetes, Docker Swarm, Apache Mesos
 ---
 
 참고. Kubernetes master IP가 바뀌었을때  
-https://blog.dudaji.com/kubernetes/2020/09/20/recovering-cluster-when-master-ip-changes.html
+```git clone https://github.com/dohyunKim12/kubernetes.git```
 
 
 
