@@ -137,8 +137,6 @@ curl http://[prometheus-server ip]/api/v1/query -d query="node_memory_MemTotal_b
 
 - charts/stable/grafana/values.yaml 파일 수정
 
-![image](https://user-images.githubusercontent.com/72643027/114358817-505fc300-9bae-11eb-94f8-bcf0812418b6.png){: width="70%" height="70%"}
-
 - Grafana 설치
 ```helm install grafana stable/grafana -f charts/stable/grafana/values.yaml```
 
