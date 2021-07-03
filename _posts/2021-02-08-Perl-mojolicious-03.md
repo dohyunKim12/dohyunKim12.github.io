@@ -9,9 +9,9 @@ thumbnail: /assets/img/posts/mojoliciousThumb.png
 comments: true
 ---
 
-(https://dohyunkim12.github.io/designpattern/2021/03/04/UnitTest-Tut-02/#/)
+[이전 포스팅](https://dohyunkim12.github.io/designpattern/2021/03/04/UnitTest-Tut-02/#/)
 
-(https://docs.mojolicious.org/Mojolicious/Guides/Growing)
+[Mojolicious](https://docs.mojolicious.org/Mojolicious/Guides/Growing)
 
 Perl - Mojolicious web framework를 이용하여 login module을 만들어 보았다.
 
